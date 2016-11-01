@@ -1,0 +1,31 @@
+#authBody {
+  text-align: center;
+}
+
+#authBody h1 {
+  font-size: 4rem;
+}
+
+#authBody input {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 3rem;
+  border: 1px solid black;
+  border-radius: .2rem;
+  font-size: 2rem;
+  width: 20rem;
+  text-align: center;
+}
+
+#authBody button {
+  line-height: 2rem;
+  font-size: 1.5rem;
+  width: 10rem;
+  background-color: rgba(52, 152, 219,1.0);
+  border: none;
+  border-radius: .2rem;
+}
+
+#authBody button:hover {
+  box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.75);
+}

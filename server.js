@@ -12,6 +12,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const authentication = require('./api/middleware/authentication');
+const userRouter = require('./api/routers/userRouter');
 
 const app = express();
 
@@ -47,7 +49,8 @@ app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-// app.use('/newSignup', SIGNUP ROUTER);
+app.use('/api', authentication);
+app.use('/api/user', userRouter);
 
 const port = process.env.PORT;
 app.listen(port, () => {
