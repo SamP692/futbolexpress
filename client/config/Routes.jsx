@@ -6,11 +6,13 @@ const Routes = () => {
   return (
     <Router history={hashHistory}>
       <Route path="/" component={Pages.nav}>
-        <IndexRoute component={Pages.placeholder} />
+        <IndexRoute component={Pages.home} />
         <Route path="login" component={Pages.login} />
         <Route path="register" component={Pages.register} />
         <Route path="about" components={Pages.placeholder} />
         <Route path="leaguelist" components={Pages.placeholder} />
+        <Route path="myteam" components={Pages.placeholder} />
+        <Route path="myleague" components={Pages.placeholder} />
       </Route>
     </Router>
   );

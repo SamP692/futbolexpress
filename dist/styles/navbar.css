@@ -1,10 +1,11 @@
 #navbar {
-  width: 54rem;
+  width: 42rem;
   background-color: rgba(52, 73, 94,.2);
   text-align: center;
   margin: 1% auto;
-  line-height: 4rem;
+  line-height: 2.5rem;
   border-radius: .2rem;
+  font-family: 'Dosis', sans-serif;
 }
 
 #navbar a {
@@ -14,11 +15,20 @@
   box-sizing: border-box;
   width: 6rem;
   border: 1px solid rgba(52, 73, 94,0);
+  color: black;
+}
+
+#navbar div {
+  display: inline-block;
 }
 
 #navbar a:hover {
   background-color: rgba(52, 73, 94,.3);
   border: 1px solid black;
+}
+
+#navbar a:visited {
+  color: inherit;
 }
 
 #navbar .dropDown {

@@ -7,7 +7,27 @@ const propTypes = {
 };
 
 function signOut() {
-  request.post('/api/user/signout').then();
+  request.post('/api/user/signout').then(() => {
+    location.reload();
+  });
+}
+
+function loggedInCheck() {
+  if (document.cookie) {
+    return (
+      <div>
+        <Link to="#">my acct</Link>
+        <Link to="/" onClick={signOut}>logout</Link>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Link to="/login">login</Link>
+        <Link to="/register">register</Link>
+      </div>
+    );
+  }
 }
 
 export default class Nav extends Component {
@@ -19,16 +39,11 @@ export default class Nav extends Component {
       <div>
         <div id="navbar">
           <Link to="/">[LOGO]</Link>
-          <Link to="/about">About</Link>
-          <Link to="#">My Teams</Link>
-          <Link className="dropDown" to="#">[TEAM 1]</Link>
-          <Link to="/leaguelist">My Leagues</Link>
-          <Link className="dropDown" to="#">[LEAGUE 1]</Link>
-          <Link to="#">Trends</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
-          <Link to="#">My Acct</Link>
-          <Link to="/" onClick={signOut}>Logout</Link>
+          <Link to="/about">about</Link>
+          <Link to="/myteam">my team</Link>
+          <Link to="/myleague">my league</Link>
+          <Link to="#">trends</Link>
+          {loggedInCheck()}
         </div>
         <div>{this.props.children}</div>
       </div>

@@ -11,6 +11,8 @@ class UserController {
                res.status(401).end();
              } else {
                req.session.currentUser = user;
+               console.log(`User ID: ${req.session.currentUser.id}`);
+               console.log(`User League: ${req.session.currentUser.leagueId}`);
                const token = createToken(user);
                res.cookie('token', token);
                res.status(200).json(user);
@@ -42,8 +44,6 @@ class UserController {
     }
   }
   static logOut(req, res) {
-    console.log('made it to the log out method');
-    console.log(`Session: ${req.session.currentUser}`);
     req.session.currentUser = null;
     res.clearCookie('token');
     res.status(204).end();
