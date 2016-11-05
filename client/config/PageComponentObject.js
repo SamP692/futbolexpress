@@ -3,7 +3,7 @@ import Register from '../components/Register.jsx';
 import Login from '../components/Login.jsx';
 import Home from '../components/Home.jsx';
 import About from '../components/About.jsx';
-import LeagueList from '../components/LeagueList.jsx';
+import League from '../components/League.jsx';
 import Placeholder from '../components/Placeholder.jsx';
 
 
@@ -14,7 +14,7 @@ const Pages = {
   login: Login,
   home: Home,
   about: About,
-  leagueList: LeagueList,
+  league: League,
 };
 
 export default Pages;

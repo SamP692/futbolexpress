@@ -11,8 +11,6 @@ class UserController {
                res.status(401).end();
              } else {
                req.session.currentUser = user;
-               console.log(`User ID: ${req.session.currentUser.id}`);
-               console.log(`User League: ${req.session.currentUser.leagueId}`);
                const token = createToken(user);
                res.cookie('token', token);
                res.status(200).json(user);

@@ -52,7 +52,7 @@ app.get('/', (request, response) => {
 
 app.use('/api', authentication);
 app.use('/api/user', userRouter);
-// app.use('/api/league', leagueRouter);
+app.use('/api/league', leagueRouter);
 
 const port = process.env.PORT;
 app.listen(port, () => {

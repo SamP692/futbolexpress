@@ -3,8 +3,10 @@ const sql = require('../sqlInjection/sqlProvider').leagues;
 const League = require('../models/league');
 
 class UserDAO {
-  static findLeague(user) {
-    return db.one(sql.find, [user])
+  static findLeague(id) {
+    console.log('reached user DAO');
+    console.log(`ID in DAO: ${id.value}`);
+    return db.one(sql.find, [id])
              .then((row) => new League(row))
              .catch((err) => {
                console.log(err);

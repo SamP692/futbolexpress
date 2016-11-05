@@ -2,8 +2,9 @@ const LeagueDAO = require('../daos/leagueDAO');
 
 class LeagueController {
   static find(req, res) {
+    console.log(`ID in LC: ${req.session.currentUser.leagueId}`);
     const leagueId = req.session.currentUser.leagueId;
-    LeagueDAO.findLeague({ leagueId })
+    LeagueDAO.findLeague(leagueId)
              .then((league) => {
                if (league) {
                  res.status(200).json(league);
