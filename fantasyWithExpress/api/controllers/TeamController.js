@@ -4,9 +4,10 @@ class TeamController {
   static findByLeagueId(req, res) {
     const leagueId = req.session.currentUser.leagueId;
     TeamDAO.findTeamsByLeagueId(leagueId)
-             .then((league) => {
-               if (league) {
-                 res.status(200).json(league);
+             .then((teams) => {
+               if (teams) {
+                 console.log(`Teams List: ${teams}`);
+                 res.status(200).json(teams);
                } else {
                  res.status(401);
                }

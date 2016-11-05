@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 const propTypes = {
   router: React.PropTypes.object,
@@ -11,26 +11,17 @@ class League extends Component {
     super();
     this.state = {
       leagueName: '',
-      teamOne: {},
-      teamTwo: {},
-      teamThree: {},
-      teamFour: {},
-      teamFive: {},
-      teamSix: {},
-      teamSeven: {},
-      teamEight: {},
-      teamNine: {},
-      teamTen: {},
-      teamEleven: {},
-      teamTwelve: {},
+      teamList: {},
     };
     this.getLeagueInformation = this.getLeagueInformation.bind(this);
     this.getTeamsInformation = this.getTeamsInformation.bind(this);
+    this.buildTeamElements = this.buildTeamElements.bind(this);
   }
   componentDidMount() {
     this.getLeagueInformation();
     this.getTeamsInformation();
   }
+  // HTTP Request to get league information
   getLeagueInformation() {
     request.get('/api/league/find')
            .then((res) => {
@@ -38,21 +29,36 @@ class League extends Component {
            })
            .catch(() => {
              this.props.router.push('/');
-             console.log('you\'ve been pushed!');
            });
   }
+  // HTTP request to get list of teams in league
   getTeamsInformation() {
     request.get('/api/team/findbyleague')
            .then((res) => {
-             console.log(`Team List: ${res}`);
+             const teams = res.body;
+             const teamList = {};
+             teams.forEach((team) => {
+               teamList[team.name] = team.id;
+             });
+             this.setState({ teamList });
            }).catch((err) => {
              console.log(err);
            });
+  }
+  // Constructs an element for each team to be rendered on the page
+  buildTeamElements() {
+    return Object.keys(this.state.teamList).map((team) => {
+      const teamId = (this.state.teamList[team]);
+      return (
+        <div key={teamId} id={teamId}>{team}</div>
+      );
+    });
   }
   render() {
     return (
       <div id="leagueBody">
         <h1>{this.state.leagueName}</h1>
+        <div>{this.buildTeamElements()}</div>
       </div>
     );
   }
