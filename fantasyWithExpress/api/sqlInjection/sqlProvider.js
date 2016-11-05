@@ -14,6 +14,9 @@ const sqlProvider = {
   leagues: {
     find: sql('./leaguesSql/findLeague.sql'),
   },
+  teams: {
+    findTeamsByLeague: sql('./teamsSql/findTeamsByLeague.sql'),
+  },
 };
 
 module.exports = sqlProvider;

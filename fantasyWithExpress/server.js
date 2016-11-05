@@ -15,6 +15,7 @@ const cookieParser = require('cookie-parser');
 const authentication = require('./api/middleware/authentication');
 const userRouter = require('./api/routers/userRouter');
 const leagueRouter = require('./api/routers/leagueRouter');
+const teamRouter = require('./api/routers/teamRouter');
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.get('/', (request, response) => {
 app.use('/api', authentication);
 app.use('/api/user', userRouter);
 app.use('/api/league', leagueRouter);
+app.use('/api/team', teamRouter);
 
 const port = process.env.PORT;
 app.listen(port, () => {
