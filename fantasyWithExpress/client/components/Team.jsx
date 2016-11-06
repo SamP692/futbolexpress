@@ -10,6 +10,8 @@ class League extends Component {
   constructor() {
     super();
     this.state = {
+      teamInfo: {},
+      playerInfo: {},
     };
   }
   // Executes call to retrieve detailed team info
@@ -22,24 +24,26 @@ class League extends Component {
     const requestUrl = `/api/team/findbyid/${teamId}`;
     request.get(requestUrl)
            .then((team) => {
-             const teamObject = team.body;
-             this.setState(teamObject);
+             const teamInfo = team.body;
+             this.setState(teamInfo);
+             console.log(this.state);
            }).catch((err) => {
              console.log(`Error in Request: ${err}`);
            });
   }
   buildRosterElements() {
-    
+    // Needs detailed player data first
+      // Going to make individual player requests and build elements in one fell swoop
   }
   render() {
     return (
       <div id="leagueBody">
         <h1>Team Page</h1>
-        <div>{this.state.teamId}</div>
+        <div>{this.state.teamInfo.name}</div>
         <table>
           <thead>
             <tr>
-              <th>#</th>
+              <th>Pos</th>
               <th>Player Name</th>
               <th>Games Played</th>
               <th>Goals</th>
