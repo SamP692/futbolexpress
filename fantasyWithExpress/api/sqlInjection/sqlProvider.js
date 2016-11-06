@@ -16,6 +16,7 @@ const sqlProvider = {
   },
   teams: {
     findTeamsByLeague: sql('./teamsSql/findTeamsByLeague.sql'),
+    findTeamById: sql('./teamsSql/findTeamById.sql'),
   },
 };
 

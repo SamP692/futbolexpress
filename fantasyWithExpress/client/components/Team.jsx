@@ -16,11 +16,20 @@ class League extends Component {
   }
   componentDidMount() {
     this.setTeamId();
+    this.getExpandedTeamInfo();
   }
   // Retrieves the ID passed in the params and sets the state have that ID
   setTeamId() {
     const teamId = this.props.params.id;
     this.setState({ teamId });
+  }
+  getExpandedTeamInfo() {
+    request.get('/api/team/findbyid')
+           .then((team) => {
+             console.log(`Team Info Returned: ${team}`);
+           }).catch((err) => {
+             console.log(`Error in Request: ${err}`);
+           });
   }
   render() {
     return (

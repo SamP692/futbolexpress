@@ -1,9 +1,9 @@
 const express = require('express');
-const TeamController = require('../controllers/TeamController'); // !!!!
+const TeamController = require('../controllers/TeamController');
 
 const router = express.Router();
 
 router.get('/findbyleague', TeamController.findByLeagueId);
-// router.post('/newleague', LeagueController.new);
+router.get('/findbyid', TeamController.findById);
 
 module.exports = router;
