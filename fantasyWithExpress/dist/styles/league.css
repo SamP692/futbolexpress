@@ -1,3 +1,17 @@
 #leagueBody {
   text-align: center;
 }
+
+#leagueBody a {
+  display: block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  width: 10rem;
+  background-color: pink;
+  margin: 0 auto;
+}
+
+#leagueBody a:hover {
+  background-color: grey;
+}

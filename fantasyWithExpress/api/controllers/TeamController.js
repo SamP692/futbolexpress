@@ -6,12 +6,14 @@ class TeamController {
     TeamDAO.findTeamsByLeagueId(leagueId)
              .then((teams) => {
                if (teams) {
-                 console.log(`Teams List: ${teams}`);
                  res.status(200).json(teams);
                } else {
                  res.status(401);
                }
              });
+  }
+  static findById(req, res) {
+    const teamId = req
   }
 }
 

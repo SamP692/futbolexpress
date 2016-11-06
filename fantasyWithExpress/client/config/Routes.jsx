@@ -12,6 +12,7 @@ const Routes = () => {
         <Route path="about" components={Pages.placeholder} />
         <Route path="myteam" components={Pages.placeholder} />
         <Route path="myleague" components={Pages.league} />
+        <Route path="team/:id" components={Pages.team} />
       </Route>
     </Router>
   );

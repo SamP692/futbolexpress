@@ -49,8 +49,9 @@ class League extends Component {
   buildTeamElements() {
     return Object.keys(this.state.teamList).map((team) => {
       const teamId = (this.state.teamList[team]);
+      const teamUrl = `/team/${teamId}`;
       return (
-        <div key={teamId} id={teamId}>{team}</div>
+        <Link to={teamUrl} key={teamId} id={teamId}>{team}</Link>
       );
     });
   }
