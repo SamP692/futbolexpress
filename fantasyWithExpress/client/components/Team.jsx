@@ -36,20 +36,19 @@ class League extends Component {
   // Request to retrieve stats for one player from DB
   getIndividualPlayerStats(id) {
     const requestUrl = `api/player/find/${id}`;
-    request.get(requestUrl).then((res) => {
-      console.log(res);
+    request.get(requestUrl).then((player) => {
+      console.log(player.body);
     });
   }
+  // Runs individual player stats request for each player in lineup
   buildRosterElements() {
-    // Object.keys(this.state.playerInfo).forEach((player) => {
-    //   const playerObject = this.state.playerInfo;
-    //   const playerId = playerObject[player];
-    //   if (playerId !== null) {
-    //     console.log(`Making Get Request for ${player} with ${playerId}`);
-    //     this.getIndividualPlayerStats(playerId);
-    //   }
-    // });
-    this.getIndividualPlayerStats(59946);
+    Object.keys(this.state.playerInfo).forEach((player) => {
+      const playerObject = this.state.playerInfo;
+      const playerId = playerObject[player];
+      if (playerId !== null) {
+        this.getIndividualPlayerStats(playerId);
+      }
+    });
   }
   render() {
     return (
