@@ -34,10 +34,14 @@ class League extends Component {
            });
   }
   // Request to retrieve stats for one player from DB
-  getIndividualPlayerStats(id) {
+  getIndividualPlayerStats(id, position) {
     const requestUrl = `api/player/find/${id}`;
     request.get(requestUrl).then((player) => {
-      console.log(player.body);
+      const playerObject = player.body;
+      const updatedPlayer = this.state.playerInfo;
+      updatedPlayer[position] = playerObject;
+      this.setState({ updatedPlayer });
+      console.log(this.state.playerInfo);
     });
   }
   // Runs individual player stats request for each player in lineup
@@ -46,7 +50,7 @@ class League extends Component {
       const playerObject = this.state.playerInfo;
       const playerId = playerObject[player];
       if (playerId !== null) {
-        this.getIndividualPlayerStats(playerId);
+        this.getIndividualPlayerStats(playerId, player);
       }
     });
   }
