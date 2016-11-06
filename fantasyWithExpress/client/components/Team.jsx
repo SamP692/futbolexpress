@@ -20,7 +20,7 @@ class League extends Component {
   componentDidMount() {
     this.getExpandedTeamInfo();
   }
-  // Retrieves full team info including players from DB
+  // Retrieves full team info including players from DB, calls roster build
   getExpandedTeamInfo() {
     const teamId = this.props.params.id;
     const requestUrl = `/api/team/findbyid/${teamId}`;
@@ -33,21 +33,23 @@ class League extends Component {
              console.log(`Error in Request: ${err}`);
            });
   }
-  buildRosterElements() {
-    Object.keys(this.state.playerInfo).forEach((player) => {
-      const playerObject = this.state.playerInfo;
-      const playerId = playerObject[player];
-      if (playerId !== null) {
-        console.log(`Making Get Request for ${player} with ${playerId}`);
-        this.getIndividualPlayerStats(playerId);
-      }
-    });
-  }
+  // Request to retrieve stats for one player from DB
   getIndividualPlayerStats(id) {
     const requestUrl = `api/player/find/${id}`;
     request.get(requestUrl).then((res) => {
       console.log(res);
     });
+  }
+  buildRosterElements() {
+    // Object.keys(this.state.playerInfo).forEach((player) => {
+    //   const playerObject = this.state.playerInfo;
+    //   const playerId = playerObject[player];
+    //   if (playerId !== null) {
+    //     console.log(`Making Get Request for ${player} with ${playerId}`);
+    //     this.getIndividualPlayerStats(playerId);
+    //   }
+    // });
+    this.getIndividualPlayerStats(59946);
   }
   render() {
     return (

@@ -6,6 +6,7 @@ class PlayerController {
     PlayerDAO.findPlayerById(playerId)
              .then((player) => {
                if (player) {
+                 console.log(player);
                  res.status(200).json(player);
                } else {
                  res.status(401);
