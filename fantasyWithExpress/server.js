@@ -16,6 +16,7 @@ const authentication = require('./api/middleware/authentication');
 const userRouter = require('./api/routers/userRouter');
 const leagueRouter = require('./api/routers/leagueRouter');
 const teamRouter = require('./api/routers/teamRouter');
+const playerRouter = require('./api/routers/playerRouter');
 
 const app = express();
 
@@ -55,6 +56,7 @@ app.use('/api', authentication);
 app.use('/api/user', userRouter);
 app.use('/api/league', leagueRouter);
 app.use('/api/team', teamRouter);
+app.use('/api/player', playerRouter);
 
 const port = process.env.PORT;
 app.listen(port, () => {

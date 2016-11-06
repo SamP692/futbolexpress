@@ -13,12 +13,14 @@ class League extends Component {
       teamInfo: {},
       playerInfo: {},
     };
+    this.buildRosterElements = this.buildRosterElements.bind(this);
+    this.getExpandedTeamInfo = this.getExpandedTeamInfo.bind(this);
   }
   // Executes call to retrieve detailed team info
   componentDidMount() {
     this.getExpandedTeamInfo();
   }
-  // Retrieves full team info including players from DB
+  // Retrieves full team info including players from DB, calls roster build
   getExpandedTeamInfo() {
     const teamId = this.props.params.id;
     const requestUrl = `/api/team/findbyid/${teamId}`;
@@ -26,14 +28,27 @@ class League extends Component {
            .then((team) => {
              const teamInfo = team.body;
              this.setState(teamInfo);
-             console.log(this.state);
+             this.buildRosterElements();
            }).catch((err) => {
              console.log(`Error in Request: ${err}`);
            });
   }
+  // Request to retrieve stats for one player from DB
+  getIndividualPlayerStats(id) {
+    const requestUrl = `api/player/find/${id}`;
+    request.get(requestUrl).then((player) => {
+      console.log(player.body);
+    });
+  }
+  // Runs individual player stats request for each player in lineup
   buildRosterElements() {
-    // Needs detailed player data first
-      // Going to make individual player requests and build elements in one fell swoop
+    Object.keys(this.state.playerInfo).forEach((player) => {
+      const playerObject = this.state.playerInfo;
+      const playerId = playerObject[player];
+      if (playerId !== null) {
+        this.getIndividualPlayerStats(playerId);
+      }
+    });
   }
   render() {
     return (
