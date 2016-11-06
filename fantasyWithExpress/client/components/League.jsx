@@ -17,6 +17,7 @@ class League extends Component {
     this.getTeamsInformation = this.getTeamsInformation.bind(this);
     this.buildTeamElements = this.buildTeamElements.bind(this);
   }
+  // Sends requests to league information and simple information for each team
   componentDidMount() {
     this.getLeagueInformation();
     this.getTeamsInformation();

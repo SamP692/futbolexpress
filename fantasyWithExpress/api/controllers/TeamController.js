@@ -13,7 +13,8 @@ class TeamController {
              });
   }
   static findById(req, res) {
-    const teamId = req.body;
+    console.log('reached team controller');
+    const teamId = req.params.id;
     TeamDAO.findTeamById(teamId)
            .then((team) => {
              if (team) {
