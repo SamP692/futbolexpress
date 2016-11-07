@@ -1,0 +1,7 @@
+#tableBody {
+  margin: 0 auto;
+  width: 80%;
+  min-width: 10rem;
+  overflow: scroll;
+  background-color: blue;
+}
