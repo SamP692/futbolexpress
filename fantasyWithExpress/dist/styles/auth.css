@@ -1,13 +1,15 @@
 #authBody {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 50%;
   text-align: center;
-}
-
-#authBody h1 {
-  font-size: 4rem;
+  background-color: rgba(46, 204, 113,.5);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  box-shadow: 0px 0px 5px 2px rgba(59,59,59,1);
 }
 
 #authBody input {
-  margin-top: 1rem;
   margin-bottom: 1rem;
   line-height: 3rem;
   border: 1px solid black;
@@ -15,17 +17,19 @@
   font-size: 2rem;
   width: 20rem;
   text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(59,59,59,1);
 }
 
 #authBody button {
-  line-height: 2rem;
+  line-height: 2.5rem;
   font-size: 1.5rem;
-  width: 10rem;
+  width: 8rem;
   background-color: rgba(52, 152, 219,1.0);
   border: none;
   border-radius: .2rem;
+  box-shadow: 0px 0px 3px 1px rgba(59,59,59,1);
 }
 
 #authBody button:hover {
-  box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 0px 1px rgba(59,59,59,1);
 }

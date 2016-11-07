@@ -12,7 +12,7 @@ class Home extends Component {
           <h1>Fubol Express 2016</h1>
           <hr />
         </div>
-        <div className="content">
+        <div>
           <Link to="about">
             <div className="linkBox" id="top" to="/about">
               learn more about <span className="title">Futbol Express</span>

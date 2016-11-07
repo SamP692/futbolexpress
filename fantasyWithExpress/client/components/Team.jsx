@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 
 const propTypes = {
   params: React.PropTypes.object,
@@ -47,7 +47,6 @@ class Team extends Component {
     };
     this.updatePlayerStats = this.updatePlayerStats.bind(this);
     this.getExpandedTeamInfo = this.getExpandedTeamInfo.bind(this);
-    this.buildStatElements = this.buildStatElements.bind(this);
   }
   // Executes call to retrieve detailed team info
   componentDidMount() {
@@ -86,89 +85,152 @@ class Team extends Component {
       }
     });
   }
-  buildStatElements() {
+  // buildStatElements() {
+     // const players = ['gk', 'cbl', 'cbr', 'fbl', 'fbr', 'cml', 'cmr', 'wl', 'wr', 'stl', 'str', 'bn1', 'bn2', 'bn3', 'bn4', 'bn5', 'bn6', 'bn7'];
+     // const titles = ['KEEPER', 'CENTER HALF', 'CENTER HALF', 'FULLBACK', 'FULLBACK', 'CENTER MID', 'CENTER MID', 'WINGER', 'WINGER', 'STRIKER', 'STRIKER', 'BENCH', 'BENCH', 'BENCH', 'BENCH', 'BENCH', 'BENCH', 'BENCH'];
+  //   return Object.keys(this.state.playerData).map((player) => {
+  //     const playerInfo = this.state.playerData[player].playerInfo;
+  //     const playerStats = this.state.playerData[player].playerStats;
+  //     return (
+  //       <tr>
+  //         <td>{player.toUpperCase()}</td>
+  //         <td>{playerInfo.playerName}</td>
+  //         <td>{playerStats.totalMins}</td>
+  //         <td>{playerStats.normalGoals}</td>
+  //         <td>{playerStats.penaltyGoals}</td>
+  //         <td>{playerStats.penaltyMisses}</td>
+  //         <td>{playerStats.shotsOnTarget}</td>
+  //         <td>{playerStats.shotsOffTarget}</td>
+  //         <td>{playerStats.shotsOffPost}</td>
+  //         <td>{playerStats.assists}</td>
+  //         <td>{playerStats.keyPasses}</td>
+  //         <td>{playerStats.foulsDrawn}</td>
+  //         <td>{playerStats.offsides}</td>
+  //         <td>{playerStats.tackles}</td>
+  //         <td>{playerStats.interceptions}</td>
+  //         <td>{playerStats.clearances}</td>
+  //         <td>{playerStats.headersWon}</td>
+  //         <td>{playerStats.shotsBlocked}</td>
+  //         <td>{playerStats.foulsConceded}</td>
+  //         <td>{playerStats.penaltiesConceded}</td>
+  //         <td>{playerStats.yellowCards}</td>
+  //         <td>{playerStats.secondYellows}</td>
+  //         <td>{playerStats.straightReds}</td>
+  //         <td>{playerStats.ownGoals}</td>
+  //         <td>{playerStats.normalGoalsConceded}</td>
+  //         <td>{playerStats.ownGoalsConceded}</td>
+  //         <td>{playerStats.penaltyGoalsConceded}</td>
+  //         <td>{playerStats.savesParried}</td>
+  //         <td>{playerStats.savesCaught}</td>
+  //         <td>{playerStats.penaltiesSaved}</td>
+  //       </tr>
+  //     );
+  //   });
+  // }
+  // Constructs row in table for each player on roster
+  buildRow(pos, posTitle) {
     return Object.keys(this.state.playerData).map((player) => {
       const playerInfo = this.state.playerData[player].playerInfo;
       const playerStats = this.state.playerData[player].playerStats;
-      return (
-        <tr>
-          <td>{player}</td>
-          <td>{playerInfo.playerName}</td>
-          <td>{playerStats.totalMins}</td>
-          <td>{playerStats.normalGoals}</td>
-          <td>{playerStats.penaltyGoals}</td>
-          <td>{playerStats.penaltyMisses}</td>
-          <td>{playerStats.shotsOnTarget}</td>
-          <td>{playerStats.shotsOffTarget}</td>
-          <td>{playerStats.shotsOffPost}</td>
-          <td>{playerStats.assists}</td>
-          <td>{playerStats.keyPasses}</td>
-          <td>{playerStats.foulsDrawn}</td>
-          <td>{playerStats.offsides}</td>
-          <td>{playerStats.tackles}</td>
-          <td>{playerStats.interceptions}</td>
-          <td>{playerStats.clearances}</td>
-          <td>{playerStats.headersWon}</td>
-          <td>{playerStats.shotsBlocked}</td>
-          <td>{playerStats.foulsConceded}</td>
-          <td>{playerStats.penaltiesConceded}</td>
-          <td>{playerStats.yellowCards}</td>
-          <td>{playerStats.secondYellows}</td>
-          <td>{playerStats.straightReds}</td>
-          <td>{playerStats.ownGoals}</td>
-          <td>{playerStats.normalGoalsConceded}</td>
-          <td>{playerStats.ownGoalsConceded}</td>
-          <td>{playerStats.penaltyGoalsConceded}</td>
-          <td>{playerStats.savesParried}</td>
-          <td>{playerStats.savesCaught}</td>
-          <td>{playerStats.penaltiesSaved}</td>
-        </tr>
-      );
+      if (player == pos) {
+        return (
+          <tr id={posTitle}>
+            <td>{posTitle}</td>
+            <td>{playerInfo.playerName}</td>
+            <td>{playerStats.totalMins}</td>
+            <td>{playerStats.normalGoals}</td>
+            <td>{playerStats.penaltyGoals}</td>
+            <td>{playerStats.penaltyMisses}</td>
+            <td>{playerStats.shotsOnTarget}</td>
+            <td>{playerStats.shotsOffTarget}</td>
+            <td>{playerStats.shotsOffPost}</td>
+            <td>{playerStats.assists}</td>
+            <td>{playerStats.keyPasses}</td>
+            <td>{playerStats.foulsDrawn}</td>
+            <td>{playerStats.offsides}</td>
+            <td>{playerStats.tackles}</td>
+            <td>{playerStats.interceptions}</td>
+            <td>{playerStats.clearances}</td>
+            <td>{playerStats.headersWon}</td>
+            <td>{playerStats.shotsBlocked}</td>
+            <td>{playerStats.foulsConceded}</td>
+            <td>{playerStats.penaltiesConceded}</td>
+            <td>{playerStats.yellowCards}</td>
+            <td>{playerStats.secondYellows}</td>
+            <td>{playerStats.straightReds}</td>
+            <td>{playerStats.ownGoals}</td>
+            <td>{playerStats.normalGoalsConceded}</td>
+            <td>{playerStats.ownGoalsConceded}</td>
+            <td>{playerStats.penaltyGoalsConceded}</td>
+            <td>{playerStats.savesParried}</td>
+            <td>{playerStats.savesCaught}</td>
+            <td>{playerStats.penaltiesSaved}</td>
+          </tr>
+        );
+      }
     });
   }
   render() {
     return (
-      <div>
-        <h1>Team Page</h1>
-        <div>{this.state.teamInfo.name}</div>
+      <div id="teamComponent">
+        <div className="header">
+          <h1>{this.state.teamInfo.teamName}</h1>
+          <hr />
+        </div>
         <div id="tableBody">
           <table >
             <thead>
-              <tr>
-                <th>pos</th>
-                <th>player</th>
-                <th>mins</th>
-                <th>goal(live)</th>
-                <th>goal(pen)</th>
-                <th>pen miss</th>
-                <th>shot on</th>
-                <th>shot off</th>
-                <th>post</th>
-                <th>assist</th>
-                <th>key</th>
-                <th>fouled</th>
-                <th>off</th>
-                <th>tackle</th>
-                <th>int</th>
-                <th>clear</th>
-                <th>head</th>
-                <th>blocks</th>
-                <th>foul given</th>
-                <th>pens given</th>
-                <th>yellow</th>
-                <th>2nd yellow</th>
-                <th>str red</th>
-                <th>own</th>
-                <th>gk goal(live)</th>
-                <th>gk goal(own)</th>
-                <th>gk goal(pen)</th>
-                <th>parried</th>
-                <th>caught</th>
-                <th>pen save</th>
+              <tr id="headerRow">
+                <th className="medCol">Pos</th>
+                <th className="largeCol">Player</th>
+                <th>Mins</th>
+                <th>Goals<br />(Non-Pen)</th>
+                <th>Goals<br />(Pen)</th>
+                <th>Penalty<br />Misses</th>
+                <th>Shots On<br />Target</th>
+                <th>Shots Off<br />Target</th>
+                <th>Shots Off<br />Post</th>
+                <th>Assists</th>
+                <th>Key<br />Passes</th>
+                <th>Fouls<br />Drawn</th>
+                <th>Offsides</th>
+                <th>Tackles</th>
+                <th>Inter-<br />ceptions</th>
+                <th>Clearances</th>
+                <th>Headers<br />Won</th>
+                <th>Shots<br />Blocked</th>
+                <th>Fouls<br />Conceded</th>
+                <th>Penalties<br />Conceded</th>
+                <th>Yellow<br />Cards</th>
+                <th>Second<br />Yellows</th>
+                <th>Straight<br />Reds</th>
+                <th>Own<br />Goals</th>
+                <th>Std Goals<br />Conceded</th>
+                <th>Own Goals<br />Conceded</th>
+                <th>Pen Goals<br />Conceded</th>
+                <th>Saves<br />Parried</th>
+                <th>Saves<br />Caught</th>
+                <th>Penalties<br />Saved</th>
               </tr>
             </thead>
             <tbody>
-              {this.buildStatElements()}
+              {this.buildRow('gk', 'Keeper')}
+              {this.buildRow('cbl', 'Center Half')}
+              {this.buildRow('cbr', 'Center Half')}
+              {this.buildRow('fbl', 'Fullback')}
+              {this.buildRow('fbr', 'Fullback')}
+              {this.buildRow('cml', 'Center Mid')}
+              {this.buildRow('cmr', 'Center Mid')}
+              {this.buildRow('wl', 'Winger')}
+              {this.buildRow('wr', 'Winger')}
+              {this.buildRow('sl', 'Forward')}
+              {this.buildRow('sr', 'Forward')}
+              {this.buildRow('bn1', 'Sub')}
+              {this.buildRow('bn2', 'Sub')}
+              {this.buildRow('bn3', 'Sub')}
+              {this.buildRow('bn4', 'Sub')}
+              {this.buildRow('bn5', 'Sub')}
+              {this.buildRow('bn6', 'Sub')}
             </tbody>
           </table>
         </div>

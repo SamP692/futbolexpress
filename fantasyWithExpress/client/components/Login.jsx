@@ -31,7 +31,7 @@ class Login extends Component {
            .then(() => {
              // .then returns a user object in case you need it
              this.updateAuth();
-             this.props.router.push('/');
+             this.props.router.push('myleague');
            });
   }
   updateAuth() {
@@ -41,15 +41,30 @@ class Login extends Component {
   }
   render() {
     return (
-      <div id="authBody">
-        <h1>Login page</h1>
-        <div>
-          <input name="email" onChange={this.handleChange} type="text" placeholder="email" />
+      <div>
+        <div className="header">
+          <h1>Returning Managers</h1>
+          <hr />
         </div>
-        <div>
-          <input name="password" onChange={this.handleChange} type="password" placeholder="password" />
+        <div id="authBody">
+          <div>
+            <input
+              name="email"
+              onChange={this.handleChange}
+              type="text"
+              placeholder="email"
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              onChange={this.handleChange}
+              type="password"
+              placeholder="password"
+            />
+          </div>
+          <button onClick={this.handleSubmit}>Login</button>
         </div>
-        <button onClick={this.handleSubmit}>Login</button>
       </div>
     );
   }

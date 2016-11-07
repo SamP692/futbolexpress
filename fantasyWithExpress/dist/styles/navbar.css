@@ -2,6 +2,7 @@
   width: 82%;
   min-width: 45rem;
   background-color: rgba(0, 0, 0,.7);
+  color: white;
   text-align: right;
   margin: 1% auto;
   margin-top: 2%;
@@ -46,9 +47,13 @@
 }
 
 #navbar a:visited {
-  color: inherit;
+  color: white;
 }
 
 #navbar .dropDown {
   display: none;
+}
+
+.navException {
+  color: white;
 }

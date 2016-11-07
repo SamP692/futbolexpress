@@ -27,3 +27,14 @@ body {
   height: 100%;
   min-height: 30rem;
 }
+
+h1 {
+  display: inline-block;
+  margin-top: 4rem;
+  margin-left: 2rem;
+}
+
+.header {
+  background-color: white;
+  margin-bottom: 2rem;
+}
