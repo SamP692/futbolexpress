@@ -41,18 +41,36 @@ class Register extends Component {
   }
   render() {
     return (
-      <div id="authBody">
-        <h1>Register page</h1>
-        <div>
-          <input name="name" onChange={this.handleInputChange} type="text" placeholder="name" />
+      <div>
+        <div className="header">
+          <h1>New Managers</h1>
+          <hr />
         </div>
-        <div>
-          <input name="email" onChange={this.handleInputChange} type="text" placeholder="email" />
+        <div id="authBody">
+          <div>
+            <input
+              name="name"
+              onChange={this.handleInputChange}
+              type="text" placeholder="name"
+            />
+          </div>
+          <div>
+            <input
+              name="email"
+              onChange={this.handleInputChange}
+              type="text" placeholder="email"
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              onChange={this.handleInputChange}
+              type="password"
+              placeholder="password"
+            />
+          </div>
+          <button onClick={this.submitRegister}>Register</button>
         </div>
-        <div>
-          <input name="password" onChange={this.handleInputChange} type="password" placeholder="password" />
-        </div>
-        <button onClick={this.submitRegister}>Register</button>
       </div>
     );
   }

@@ -1,7 +1,46 @@
 #tableBody {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
   min-width: 10rem;
   overflow: scroll;
-  background-color: blue;
+  background-color: white;
+  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+}
+
+#tableBody #headerRow {
+  background-color: white;
+  border: 0px solid white;
+}
+
+#tableBody tr {
+  background-color: rgba(52, 152, 219,.1);
+}
+
+#teamComponent .largeCol {
+  min-width: 10rem;
+}
+
+#teamComponent .medCol {
+  min-width: 6rem;
+}
+
+#tableBody td {
+  text-align: center;
+}
+
+#tableBody th {
+  min-width: 5rem;
+}
+#teamComponent h1 {
+  color: rgba(41, 128, 185,1.0);
+  font-size: 3rem;
+  text-shadow: 6px 4px 6px rgba(180, 183, 183, 1);
+}
+
+#teamComponent tr:nth-child(even) {
+  background-color: rgba(46, 204, 113,.1);
+}
+
+#sub {
+  background-color: grey;
 }

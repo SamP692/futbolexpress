@@ -29,7 +29,7 @@ class League extends Component {
              this.setState({ leagueName: res.body.name });
            })
            .catch(() => {
-             this.props.router.push('/');
+             this.props.router.push('/login');
            });
   }
   // HTTP request to get list of teams in league
@@ -58,9 +58,14 @@ class League extends Component {
   }
   render() {
     return (
-      <div id="leagueBody">
-        <h1>{this.state.leagueName}</h1>
-        <div>{this.buildTeamElements()}</div>
+      <div>
+        <div className="header">
+          <h1>{this.state.leagueName}</h1>
+          <hr />
+        </div>
+        <div id="leagueBody">
+          {this.buildTeamElements()}
+        </div>
       </div>
     );
   }

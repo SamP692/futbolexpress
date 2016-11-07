@@ -38,14 +38,14 @@ export default class Nav extends Component {
     return (
       <div>
         <div id="navbar">
-          <Link to="/">[LOGO]</Link>
+          <Link to="/"><div id="logo" /></Link>
           <Link to="/about">about</Link>
           <Link to="/myteam">my team</Link>
           <Link to="/myleague">my league</Link>
           <Link to="#">trends</Link>
           {loggedInCheck()}
         </div>
-        <div>{this.props.children}</div>
+        <div className="componentBody">{this.props.children}</div>
       </div>
     );
   }
