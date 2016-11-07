@@ -1,9 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  color: black;
 }
 
 body {
+  background-color: black;
+  background-image: url('http://i.imgur.com/8Af1tgD.jpg');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.componentBody {
+  background: rgba(236, 240, 241,.9);
+  box-shadow: 0px 0px 5px 2px rgba(184,182,184,1);
+  width: 80%;
+  min-width: 41rem;
+  margin: 0 auto;
+  margin-top: 3%;
+  height: 100%;
+  min-height: 30rem;
 }
