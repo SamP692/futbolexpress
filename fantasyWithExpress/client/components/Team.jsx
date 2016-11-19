@@ -15,34 +15,34 @@ class Team extends Component {
       playerInfo: {},
       playerData: {},
       statCategories: {
-        assists: 4,
-        clearances: 0.5,
-        foulsConceded: -0.5,
-        foulsDrawn: 0.5,
-        headersWon: 0.5,
-        interceptions: 0.5,
-        keyPasses: 1,
-        normalGoals: 7,
-        normalGoalsConceded: -4,
-        offsides: -1,
-        ownGoals: -5,
-        ownGoalsConceded: -2.5,
-        penaltiesConceded: -4.5,
-        penaltiesDrawn: 4,
-        penaltiesSaved: 7,
-        penaltyGoals: 3,
-        penaltyGoalsConceded: -2.5,
-        penaltyMisses: -4.5,
-        savesCaught: 2,
-        savesParried: 1,
-        secondYellows: -4,
-        shotsBlocked: 1,
-        shotsOffPost: 2,
-        shotsOffTarget: 0.5,
-        shotsOnTarget: 1,
-        straightReds: -6,
-        tackles: 1,
-        yellowCards: -2,
+        // assists: 4,
+        // clearances: 0.5,
+        // foulsConceded: -0.5,
+        // foulsDrawn: 0.5,
+        // headersWon: 0.5,
+        // interceptions: 0.5,
+        // keyPasses: 1,
+        // normalGoals: 7,
+        // normalGoalsConceded: -4,
+        // offsides: -1,
+        // ownGoals: -5,
+        // ownGoalsConceded: -2.5,
+        // penaltiesConceded: -4.5,
+        // penaltiesDrawn: 4,
+        // penaltiesSaved: 7,
+        // penaltyGoals: 3,
+        // penaltyGoalsConceded: -2.5,
+        // penaltyMisses: -4.5,
+        // savesCaught: 2,
+        // savesParried: 1,
+        // secondYellows: -4,
+        // shotsBlocked: 1,
+        // shotsOffPost: 2,
+        // shotsOffTarget: 0.5,
+        // shotsOnTarget: 1,
+        // straightReds: -6,
+        // tackles: 1,
+        // yellowCards: -2,
       },
     };
     this.updatePlayerStats = this.updatePlayerStats.bind(this);
@@ -65,6 +65,10 @@ class Team extends Component {
              this.props.router.push('/');
            });
   }
+  // Request to retrieve current point valuations
+  getPointValues() {
+    
+  }
   // Request to retrieve stats for one player from DB, followed up state update
   getIndividualPlayerStats(id, position) {
     const requestUrl = `api/player/find/${id}`;
@@ -85,49 +89,6 @@ class Team extends Component {
       }
     });
   }
-  // buildStatElements() {
-     // const players = ['gk', 'cbl', 'cbr', 'fbl', 'fbr', 'cml', 'cmr', 'wl', 'wr', 'stl', 'str', 'bn1', 'bn2', 'bn3', 'bn4', 'bn5', 'bn6', 'bn7'];
-     // const titles = ['KEEPER', 'CENTER HALF', 'CENTER HALF', 'FULLBACK', 'FULLBACK', 'CENTER MID', 'CENTER MID', 'WINGER', 'WINGER', 'STRIKER', 'STRIKER', 'BENCH', 'BENCH', 'BENCH', 'BENCH', 'BENCH', 'BENCH', 'BENCH'];
-  //   return Object.keys(this.state.playerData).map((player) => {
-  //     const playerInfo = this.state.playerData[player].playerInfo;
-  //     const playerStats = this.state.playerData[player].playerStats;
-  //     return (
-  //       <tr>
-  //         <td>{player.toUpperCase()}</td>
-  //         <td>{playerInfo.playerName}</td>
-  //         <td>{playerStats.totalMins}</td>
-  //         <td>{playerStats.normalGoals}</td>
-  //         <td>{playerStats.penaltyGoals}</td>
-  //         <td>{playerStats.penaltyMisses}</td>
-  //         <td>{playerStats.shotsOnTarget}</td>
-  //         <td>{playerStats.shotsOffTarget}</td>
-  //         <td>{playerStats.shotsOffPost}</td>
-  //         <td>{playerStats.assists}</td>
-  //         <td>{playerStats.keyPasses}</td>
-  //         <td>{playerStats.foulsDrawn}</td>
-  //         <td>{playerStats.offsides}</td>
-  //         <td>{playerStats.tackles}</td>
-  //         <td>{playerStats.interceptions}</td>
-  //         <td>{playerStats.clearances}</td>
-  //         <td>{playerStats.headersWon}</td>
-  //         <td>{playerStats.shotsBlocked}</td>
-  //         <td>{playerStats.foulsConceded}</td>
-  //         <td>{playerStats.penaltiesConceded}</td>
-  //         <td>{playerStats.yellowCards}</td>
-  //         <td>{playerStats.secondYellows}</td>
-  //         <td>{playerStats.straightReds}</td>
-  //         <td>{playerStats.ownGoals}</td>
-  //         <td>{playerStats.normalGoalsConceded}</td>
-  //         <td>{playerStats.ownGoalsConceded}</td>
-  //         <td>{playerStats.penaltyGoalsConceded}</td>
-  //         <td>{playerStats.savesParried}</td>
-  //         <td>{playerStats.savesCaught}</td>
-  //         <td>{playerStats.penaltiesSaved}</td>
-  //       </tr>
-  //     );
-  //   });
-  // }
-  // Constructs row in table for each player on roster
   buildRow(pos, posTitle) {
     return Object.keys(this.state.playerData).map((player) => {
       const playerInfo = this.state.playerData[player].playerInfo;
@@ -214,23 +175,24 @@ class Team extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.buildRow('gk', 'Keeper')}
-              {this.buildRow('cbl', 'Center Half')}
-              {this.buildRow('cbr', 'Center Half')}
-              {this.buildRow('fbl', 'Fullback')}
-              {this.buildRow('fbr', 'Fullback')}
-              {this.buildRow('cml', 'Center Mid')}
-              {this.buildRow('cmr', 'Center Mid')}
-              {this.buildRow('wl', 'Winger')}
-              {this.buildRow('wr', 'Winger')}
-              {this.buildRow('sl', 'Forward')}
-              {this.buildRow('sr', 'Forward')}
+              {this.buildRow('gk', 'GK')}
+              {this.buildRow('cbl', 'CB')}
+              {this.buildRow('cbr', 'CB')}
+              {this.buildRow('fbl', 'FB')}
+              {this.buildRow('fbr', 'FB')}
+              {this.buildRow('cml', 'CM')}
+              {this.buildRow('cmr', 'CM')}
+              {this.buildRow('wl', 'W')}
+              {this.buildRow('wr', 'W')}
+              {this.buildRow('sl', 'St')}
+              {this.buildRow('sr', 'St')}
               {this.buildRow('bn1', 'Sub')}
               {this.buildRow('bn2', 'Sub')}
               {this.buildRow('bn3', 'Sub')}
               {this.buildRow('bn4', 'Sub')}
               {this.buildRow('bn5', 'Sub')}
               {this.buildRow('bn6', 'Sub')}
+              {this.buildRow('bn7', 'Sub')}
             </tbody>
           </table>
         </div>

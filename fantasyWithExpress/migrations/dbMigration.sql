@@ -17,18 +17,6 @@ CREATE TABLE players (
 CREATE TABLE leagues (
   id SERIAL PRIMARY KEY,
   name VARCHAR(100)
-  -- t1_id INT REFERENCES teams(id),
-  -- t2_id INT REFERENCES teams(id),
-  -- t3_id INT REFERENCES teams(id),
-  -- t4_id INT REFERENCES teams(id),
-  -- t5_id INT REFERENCES teams(id),
-  -- t6_id INT REFERENCES teams(id),
-  -- t7_id INT REFERENCES teams(id),
-  -- t8_id INT REFERENCES teams(id),
-  -- t9_id INT REFERENCES teams(id),
-  -- t10_id INT REFERENCES teams(id),
-  -- t11_id INT REFERENCES teams(id),
-  -- t12_id INT REFERENCES teams(id)
 );
 
 CREATE TABLE users (
@@ -104,6 +92,37 @@ CREATE TABLE performances (
   pn_sav SMALLINT
 );
 
+CREATE TABLE point_vals (
+  assists NUMERIC,
+  clearances NUMERIC,
+  foulsConceded NUMERIC,
+  foulsDrawn NUMERIC,
+  headersWon NUMERIC,
+  interceptions NUMERIC,
+  keyPasses NUMERIC,
+  normalGoals NUMERIC,
+  normalGoalsConceded NUMERIC,
+  offsides NUMERIC,
+  ownGoals NUMERIC,
+  ownGoalsConceded NUMERIC,
+  penaltiesConceded NUMERIC,
+  penaltiesDrawn NUMERIC,
+  penaltiesSaved NUMERIC,
+  penaltyGoals NUMERIC,
+  penaltyGoalsConceded NUMERIC,
+  penaltyMisses NUMERIC,
+  savesCaught NUMERIC,
+  savesParried NUMERIC,
+  secondYellows NUMERIC,
+  shotsBlocked NUMERIC,
+  shotsOffPost NUMERIC,
+  shotsOffTarget NUMERIC,
+  shotsOnTarget NUMERIC,
+  straightReds NUMERIC,
+  tackles NUMERIC,
+  yellowCards NUMERIC
+);
+
 INSERT INTO leagues(id, name) VALUES (1, 'the champions league');
 
 INSERT INTO users(name, email, password, l_id) VALUES ('Phred', 'phred@gmail.com', '$2a$10$bzJ1syjDtb9HWW6o00DHbOGDshdp244Kj6dhS7Ex3SNfMEDzB4fri', 1);
@@ -118,6 +137,8 @@ INSERT INTO users(name, email, password, l_id) VALUES ('Nathan', 'nate@gmail.com
 INSERT INTO users(name, email, password, l_id) VALUES ('Kaylee', 'kaylee@greenpeace.org', '$2a$10$bzJ1syjDtb9HWW6o00DHbOGDshdp244Kj6dhS7Ex3SNfMEDzB4fri', 1);
 INSERT INTO users(name, email, password, l_id) VALUES ('Jaydeep', 'jay@hotmail.com', '$2a$10$bzJ1syjDtb9HWW6o00DHbOGDshdp244Kj6dhS7Ex3SNfMEDzB4fri', 1);
 INSERT INTO users(name, email, password, l_id) VALUES ('Messi', 'lionel@barca.net', '$2a$10$bzJ1syjDtb9HWW6o00DHbOGDshdp244Kj6dhS7Ex3SNfMEDzB4fri', 1);
+
+INSERT INTO point_vals(assists, clearances, foulsConceded, foulsDrawn, headersWon, interceptions, keyPasses, normalGoals, normalGoalsConceded, offsides, ownGoals, ownGoalsConceded, penaltiesConceded, penaltiesDrawn, penaltiesSaved, penaltyGoals, penaltyGoalsConceded, penaltyMisses, savesCaught, savesParried, secondYellows, shotsBlocked, shotsOffPost, shotsOffTarget, shotsOnTarget, straightReds, tackles, yellowCards) VALUES (4, 0.5, -0.5, 0.5, 0.5, 0.5, 1, 7, -4, -1, -5, -2.5, -4.5, 4, 7, 3, -2.5, -4.5, 2, 1, -4, 1, 2, 0.5, 1, -6, 1, -2);
 
 COPY players FROM '/Users/christopherpeterson/src/fantasySoccer/fantasyWithExpress/migrations/playerInfo.csv' DELIMITER ',' CSV HEADER ENCODING 'windows-1251';
 
