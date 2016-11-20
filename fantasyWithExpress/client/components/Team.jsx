@@ -14,36 +14,7 @@ class Team extends Component {
       teamInfo: {},
       playerInfo: {},
       playerData: {},
-      statCategories: {
-        // assists: 4,
-        // clearances: 0.5,
-        // foulsConceded: -0.5,
-        // foulsDrawn: 0.5,
-        // headersWon: 0.5,
-        // interceptions: 0.5,
-        // keyPasses: 1,
-        // normalGoals: 7,
-        // normalGoalsConceded: -4,
-        // offsides: -1,
-        // ownGoals: -5,
-        // ownGoalsConceded: -2.5,
-        // penaltiesConceded: -4.5,
-        // penaltiesDrawn: 4,
-        // penaltiesSaved: 7,
-        // penaltyGoals: 3,
-        // penaltyGoalsConceded: -2.5,
-        // penaltyMisses: -4.5,
-        // savesCaught: 2,
-        // savesParried: 1,
-        // secondYellows: -4,
-        // shotsBlocked: 1,
-        // shotsOffPost: 2,
-        // shotsOffTarget: 0.5,
-        // shotsOnTarget: 1,
-        // straightReds: -6,
-        // tackles: 1,
-        // yellowCards: -2,
-      },
+      pointList: {},
     };
     this.updatePlayerStats = this.updatePlayerStats.bind(this);
     this.getExpandedTeamInfo = this.getExpandedTeamInfo.bind(this);
@@ -70,8 +41,10 @@ class Team extends Component {
   getPointValues() {
     const requestUrl = '/api/points/getvalues';
     request.get(requestUrl)
-           .then((pointsList) => {
-             console.log(pointsList);
+           .then((valueList) => {
+             const pointList = valueList.body;
+             this.setState({ pointList });
+             console.log(this.state);
            });
   }
   // Request to retrieve stats for one player from DB, followed up state update
