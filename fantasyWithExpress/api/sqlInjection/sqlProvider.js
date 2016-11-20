@@ -21,6 +21,9 @@ const sqlProvider = {
   players: {
     findPlayerById: sql('./playersSql/findById.sql'),
   },
+  points: {
+    getValues: sql('./pointsSql/getValues.sql'),
+  },
 };
 
 module.exports = sqlProvider;
