@@ -51,6 +51,7 @@ class Team extends Component {
   // Executes call to retrieve detailed team info
   componentDidMount() {
     this.getExpandedTeamInfo();
+    this.getPointValues();
   }
   // Request to retrieve full team info DB and then run --updatePlayerStats()-- for each player
   getExpandedTeamInfo() {
@@ -67,7 +68,11 @@ class Team extends Component {
   }
   // Request to retrieve current point valuations
   getPointValues() {
-    
+    const requestUrl = '/api/points/getvalues';
+    request.get(requestUrl)
+           .then((pointsList) => {
+             console.log(pointsList);
+           });
   }
   // Request to retrieve stats for one player from DB, followed up state update
   getIndividualPlayerStats(id, position) {
